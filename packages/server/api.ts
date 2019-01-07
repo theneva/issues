@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import pg from 'pg';
-import { resolve } from 'dns';
 
 const pool = new pg.Pool({
   host: 'localhost',
