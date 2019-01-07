@@ -6,7 +6,7 @@ class App extends Component {
     return (
       <div className="container">
         <header className="header">Header</header>
-        <main>Main</main>
+        <main className="main">Main</main>
       </div>
     );
   }
