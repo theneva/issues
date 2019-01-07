@@ -13,12 +13,12 @@ interface CharacterBase {
   alias: string;
 }
 
-interface CharacterSummary extends CharacterBase {}
+export interface CharacterSummary extends CharacterBase {}
 
 export interface Issue extends IssueBase {
   characters: CharacterSummary[];
 }
 
-interface Character extends CharacterBase {
+export interface Character extends CharacterBase {
   issues: IssueSummary[];
 }

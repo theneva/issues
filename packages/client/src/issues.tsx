@@ -10,14 +10,14 @@ type State = {
 
 class Issues extends React.PureComponent<Props, State> {
   state: State = {
-    loading: false,
+    loading: true,
     issues: [],
   };
 
   componentDidMount() {
     fetch('/api/issues')
       .then(res => res.json())
-      .then(issues => this.setState({ issues }));
+      .then(issues => this.setState({ loading: false, issues }));
   }
 
   render() {
