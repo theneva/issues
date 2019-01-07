@@ -3,7 +3,9 @@ import { Router, Link } from '@reach/router';
 import './app.css';
 import Home from './home';
 import Issues from './issues';
+import SingleIssue from './single-issue';
 import Characters from './characters';
+import SingleCharacter from './single-character';
 
 class App extends Component {
   render() {
@@ -18,7 +20,9 @@ class App extends Component {
           <Router>
             <Home path="/" />
             <Issues path="/issues" />
+            <SingleIssue path="/issues/:id" />
             <Characters path="/characters" />
+            <SingleCharacter path="/characters/:id" />
           </Router>
         </main>
       </div>
