@@ -27,11 +27,17 @@ router.get('/characters/:id', async (req, res) => {
 
   const character = characters[0];
 
-  const { rows: issues } = await pool.query(`
+  const { rows: issues } = await pool.query(
+    `
 select issue.*
 from issue
-join issue_character on issue_id = issue.id
-`);
+join
+  issue_character on issue_id = issue.id
+where
+  issue_character.character_id = $1
+`,
+    [id],
+  );
 
   character.issues = issues;
 
@@ -57,11 +63,17 @@ router.get('/issues/:id', async (req, res) => {
 
   const issue = issues[0];
 
-  const { rows: characters } = await pool.query(`
-select character.*
+  const { rows: characters } = await pool.query(
+    `
+select *
 from character
-  join issue_character on character_id = character.id
-`);
+join
+  issue_character on issue_character.character_id = character.id
+where
+  issue_character.issue_id = $1
+`,
+    [id],
+  );
 
   issue.characters = characters;
 
