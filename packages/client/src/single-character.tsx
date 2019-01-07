@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps } from '@reach/router';
+import { RouteComponentProps, Link } from '@reach/router';
 import { Character } from './types';
 
 type RouteParams = { id: string };
@@ -44,7 +44,9 @@ class SingleCharacter extends React.PureComponent<Props, State> {
         <h2>Appears in issues</h2>
         <ul>
           {character.issues.map(issue => (
-            <li key={`character-issue-${issue.id}`}>{JSON.stringify(issue)}</li>
+            <li key={`character-issue-${issue.id}`}>
+              <Link to={`/issues/${issue.id}`}>{JSON.stringify(issue)}</Link>
+            </li>
           ))}
         </ul>
       </>
