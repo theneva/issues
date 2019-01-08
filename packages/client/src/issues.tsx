@@ -1,7 +1,7 @@
+import { RouteComponentProps } from '@reach/router';
 import * as React from 'react';
-import { RouteComponentProps, Link } from '@reach/router';
 import { IssueSummaryType } from './types';
-import IssueSummary from './issue-summary';
+import IssueSummaryList from './issue-summary-list';
 
 type Props = RouteComponentProps;
 type State = {
@@ -31,13 +31,7 @@ class Issues extends React.PureComponent<Props, State> {
     return (
       <>
         <h1>Issues</h1>
-        <ul>
-          {issues.map(issue => (
-            <li key={`issue-${issue.id}`}>
-              <IssueSummary {...issue} />
-            </li>
-          ))}
-        </ul>
+        <IssueSummaryList issues={issues} />
       </>
     );
   }
