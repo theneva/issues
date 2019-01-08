@@ -13,6 +13,7 @@ const IssueSummary: React.FunctionComponent<Props> = ({
   summary,
 }) => {
   const releaseDate = new Date(released);
+
   return (
     <div className="issue-summary">
       <h1 className="issue-summary__name">
