@@ -1,0 +1,8 @@
+.issue-summary {
+  border: solid black 1px;
+  padding: 8px;
+}
+
+.issue-summary__name {
+  font-size: 1.5rem;
+}

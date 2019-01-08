@@ -2,6 +2,7 @@ interface IssueBase {
   id: number;
   name: string;
   summary: string;
+  released: string;
 }
 
 export interface IssueSummaryType extends IssueBase {}

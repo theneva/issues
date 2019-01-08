@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from '@reach/router';
 import { IssueSummaryType } from './types';
+import IssueSummary from './issue-summary';
 
 type Props = RouteComponentProps;
 type State = {
@@ -33,7 +34,7 @@ class Issues extends React.PureComponent<Props, State> {
         <ul>
           {issues.map(issue => (
             <li key={`issue-${issue.id}`}>
-              <Link to={`/issues/${issue.id}`}>{JSON.stringify(issue)}</Link>
+              <IssueSummary {...issue} />
             </li>
           ))}
         </ul>
