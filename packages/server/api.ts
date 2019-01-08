@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import pg from 'pg';
+import camelcaseKeys from 'camelcase-keys';
 
 const pool = new pg.Pool({
   host: 'localhost',
@@ -9,8 +10,8 @@ const pool = new pg.Pool({
 const router = Router();
 
 router.get('/characters', async (req, res) => {
-  const { rows } = await pool.query('select * from character');
-  res.json(rows);
+  const { rows: characters } = await pool.query('select * from character');
+  res.json(camelcaseKeys(characters, { deep: true }));
 });
 
 router.get('/characters/:id', async (req, res) => {
@@ -41,12 +42,12 @@ where
 
   character.issues = issues;
 
-  res.json(character);
+  res.json(camelcaseKeys(character, { deep: true }));
 });
 
 router.get('/issues', async (req, res) => {
   const { rows } = await pool.query('select * from issue');
-  res.json(rows);
+  res.json(camelcaseKeys(rows, { deep: true }));
 });
 
 router.get('/issues/:id', async (req, res) => {
@@ -77,7 +78,7 @@ where
 
   issue.characters = characters;
 
-  res.json(issue);
+  res.json(camelcaseKeys(issue, { deep: true }));
 });
 
 export default router;

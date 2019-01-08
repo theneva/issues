@@ -17,8 +17,28 @@ function byRelease(left: IssueSummaryType, right: IssueSummaryType): number {
   return new Date(left.released).getTime() - new Date(right.released).getTime();
 }
 
-function byStory(left: IssueSummaryType, right: IssueSummaryType): number {
-  return new Date(right.released).getTime() - new Date(left.released).getTime();
+function sortByStory(issues: IssueSummaryType[]): IssueSummaryType[] {
+  const firstIssue = issues.find(issue => issue.previousIssueId === null);
+
+  if (firstIssue == null) {
+    throw new Error('There is no first issue!');
+  }
+
+  const sorted: IssueSummaryType[] = [firstIssue];
+
+  let currentIssue: IssueSummaryType = firstIssue;
+  while (true) {
+    const nextIssue = issues[currentIssue.nextIssueId - 1];
+
+    if (nextIssue == null) {
+      break;
+    }
+
+    sorted.push(nextIssue);
+    currentIssue = nextIssue;
+  }
+
+  return sorted;
 }
 
 class SingleCharacter extends React.PureComponent<Props, State> {
@@ -47,7 +67,10 @@ class SingleCharacter extends React.PureComponent<Props, State> {
 
     const { order } = this.state;
 
-    const compareIssues = order === 'release' ? byRelease : byStory;
+    const { issues } = character;
+
+    const sortedIssues =
+      order === 'release' ? issues.sort(byRelease) : sortByStory(issues);
 
     return (
       <>
@@ -87,7 +110,7 @@ class SingleCharacter extends React.PureComponent<Props, State> {
           </div>
         </div>
         <ul>
-          {character.issues.sort(compareIssues).map(issue => (
+          {sortedIssues.map(issue => (
             <li key={`character-issue-${issue.id}`}>
               <IssueSummary {...issue} />
             </li>

@@ -3,6 +3,8 @@ interface IssueBase {
   name: string;
   summary: string;
   released: string;
+  previousIssueId: number;
+  nextIssueId: number;
 }
 
 export interface IssueSummaryType extends IssueBase {}
