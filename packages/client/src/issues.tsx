@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from '@reach/router';
-import { IssueSummary } from './types';
+import { IssueSummaryType } from './types';
 
 type Props = RouteComponentProps;
 type State = {
   loading: boolean;
-  issues: IssueSummary[];
+  issues: IssueSummaryType[];
 };
 
 class Issues extends React.PureComponent<Props, State> {

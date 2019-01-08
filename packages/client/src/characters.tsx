@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from '@reach/router';
-import { CharacterSummary } from './types';
+import { CharacterSummaryType } from './types';
 
 type Props = RouteComponentProps;
 type State = {
   loading: boolean;
-  characters: CharacterSummary[];
+  characters: CharacterSummaryType[];
 };
 
 class Characters extends React.PureComponent<Props, State> {

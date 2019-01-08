@@ -4,7 +4,7 @@ interface IssueBase {
   summary: string;
 }
 
-export interface IssueSummary extends IssueBase {}
+export interface IssueSummaryType extends IssueBase {}
 
 interface CharacterBase {
   id: number;
@@ -13,12 +13,12 @@ interface CharacterBase {
   alias: string;
 }
 
-export interface CharacterSummary extends CharacterBase {}
+export interface CharacterSummaryType extends CharacterBase {}
 
-export interface Issue extends IssueBase {
-  characters: CharacterSummary[];
+export interface IssueType extends IssueBase {
+  characters: CharacterSummaryType[];
 }
 
-export interface Character extends CharacterBase {
-  issues: IssueSummary[];
+export interface CharacterType extends CharacterBase {
+  issues: IssueSummaryType[];
 }

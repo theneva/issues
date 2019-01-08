@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { RouteComponentProps, Link } from '@reach/router';
-import { Character } from './types';
+import { CharacterType } from './types';
 
 type RouteParams = { id: string };
 type Props = RouteComponentProps<RouteParams>;
 type State = {
   loading: boolean;
-  character: Character | null;
+  character: CharacterType | null;
 };
 
 class SingleCharacter extends React.PureComponent<Props, State> {

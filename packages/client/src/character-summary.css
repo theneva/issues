@@ -1,0 +1,8 @@
+.character-summary {
+  border: solid black 1px;
+  padding: 8px;
+}
+
+.character-summary__name {
+  font-size: 1.5rem;
+}
