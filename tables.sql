@@ -28,9 +28,9 @@ insert into issue (
     released,
     summary
 ) values
-    ('Some issue', '2018-04-13', 'Some summary'),
-    ('Some other issue', '2018-05-22', 'Some other summary'),
-    ('Yet another issue', '2018-07-11', 'Yet another summary');
+    ('Release 1, story 3', '2018-04-13', 'Some summary'),
+    ('Release 2, story 1', '2018-05-22', 'Some other summary'),
+    ('Release 3, story 2', '2018-07-11', 'Yet another summary');
 
 drop table if exists issue_character cascade;
 create table issue_character (
