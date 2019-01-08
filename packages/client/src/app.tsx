@@ -4,6 +4,7 @@ import './app.css';
 import Home from './home';
 import Issues from './issues';
 import SingleIssue from './single-issue';
+import IssueForm from './issue-form';
 import Characters from './characters';
 import SingleCharacter from './single-character';
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Home path="/" />
             <Issues path="/issues" />
             <SingleIssue path="/issues/:id" />
+            <IssueForm path="/issues/new" />
             <Characters path="/characters" />
             <SingleCharacter path="/characters/:id" />
           </Router>
